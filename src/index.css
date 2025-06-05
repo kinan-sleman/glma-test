@@ -1,0 +1,8 @@
+@import "tailwindcss";
+/* Start Global Variables */
+:root {
+  --primary-color: #2277eb;
+  --primary-hover-color: #3eb8ff;
+  --text-color: #5c6d70;
+}
+/* End Global Variables */
