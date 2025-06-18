@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { MessageCircle, Phone, Mail, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { i18n } = useTranslation();
+  const { language, setLanguage, flags } = useLanguage();
 
   return (
     <header className="bg-white shadow-sm fixed w-full top-0 left-0 z-50 overflow-x-hidden">
@@ -41,7 +45,7 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Right Section - Contact Info */}
+        {/* Right Section - Contact Info and Language Selector */}
         <div className="hidden md:flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <Phone className="text-[var(--text-color)]" size={24} strokeWidth={2} />
@@ -50,6 +54,25 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-2">
             <Mail className="text-[var(--text-color)]" size={24} strokeWidth={2} />
             <span className="text-[var(--text-color)]">INFO@HOSTPRESS.COM</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <img
+              src={flags[language as keyof typeof flags]}
+              alt="flag"
+              className="w-5 h-4 object-cover"
+            />
+            <select
+              value={language}
+              onChange={(e) => {
+                const newLang = e.target.value;
+                setLanguage(newLang);
+                i18n.changeLanguage(newLang);
+              }}
+              className="bg-transparent text-[var(--text-color)] border-none focus:outline-none text-sm"
+            >
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+            </select>
           </div>
         </div>
 
@@ -96,6 +119,25 @@ const Header: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Mail className="text-[var(--text-color)]" size={24} strokeWidth={2} />
                 <span className="text-[var(--text-color)]">INFO@HOSTPRESS.COM</span>
+              </div>
+              <div className="flex items-center gap-2 mt-4">
+                <img
+                  src={flags[language as keyof typeof flags]}
+                  alt="flag"
+                  className="w-5 h-4 object-cover"
+                />
+                <select
+                  value={language}
+                  onChange={(e) => {
+                    const newLang = e.target.value;
+                    setLanguage(newLang);
+                    i18n.changeLanguage(newLang);
+                  }}
+                  className="bg-transparent text-[var(--text-color)] border-none focus:outline-none text-sm"
+                >
+                  <option value="en">English</option>
+                  <option value="ar">العربية</option>
+                </select>
               </div>
             </nav>
           </div>

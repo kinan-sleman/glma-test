@@ -13,6 +13,7 @@ import Footer from './components/common/Footer';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { LanguageProvider } from './context/LanguageContext.tsx';
 function App() {
   useEffect(() => {
     AOS.init({
@@ -31,19 +32,21 @@ function App() {
   }, []);
 
   return (
-    <div className='overflow-hidden'>
-      <Header />
-      <Hero />
-      <SemiService />
-      <PricingPlan />
-      <Counters />
-      <DedicatedHosting />
-      <Features />
-      <Technologies />
-      <TechnlogyGlobally />
-      <TestimonialsAndFaqs />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className='overflow-hidden'>
+        <Header />
+        <Hero />
+        <SemiService />
+        <PricingPlan />
+        <Counters />
+        <DedicatedHosting />
+        <Features />
+        <Technologies />
+        <TechnlogyGlobally />
+        <TestimonialsAndFaqs />
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
 

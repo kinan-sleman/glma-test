@@ -1,6 +1,8 @@
-import { technology_globally } from "../exports/images";
+import { technology_globally } from "../exports/images"
+import { useTranslation } from "react-i18next";
 
 export default function TechnlogyGlobally() {
+    const { t } = useTranslation();
     return (
         <div className="py-16 bg-gray-100">
             <h3 
@@ -9,7 +11,7 @@ export default function TechnlogyGlobally() {
                 data-aos-duration="800"
                 data-aos-delay="200"
             >
-                Technology
+                {t("Technology")}
             </h3>
             <h2 
                 className="text-5xl font-light text-center text-[var(--text-color)] tracking-widest mb-16 uppercase"
@@ -17,7 +19,7 @@ export default function TechnlogyGlobally() {
                 data-aos-duration="800"
                 data-aos-delay="300"
             >
-                Transfer Globally
+                {t("Transfer Globally")}
             </h2>
 
             <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center md:items-start gap-12">
@@ -44,7 +46,7 @@ export default function TechnlogyGlobally() {
                         data-aos-duration="600"
                         data-aos-delay="100"
                     >
-                        Technology Globally
+                        {t("Technology Globally")}
                     </h3>
                     <p 
                         className="text-gray-600 text-sm leading-relaxed"
@@ -52,10 +54,7 @@ export default function TechnlogyGlobally() {
                         data-aos-duration="600"
                         data-aos-delay="200"
                     >
-                        Experience seamless global technology services with our advanced infrastructure.
-                        Our cutting-edge solutions connect businesses worldwide, ensuring reliable performance
-                        and exceptional user experience. From cloud computing to data centers, we provide
-                        comprehensive solutions tailored to your needs. 
+                        {t("Experience seamless global technology services with our advanced infrastructure. Our cutting-edge solutions connect businesses worldwide, ensuring reliable performance and exceptional user experience. From cloud computing to data centers, we provide comprehensive solutions tailored to your needs.")} 
                     </p>
                     <button
                         className="w-fit py-2 px-3 my-8 bg-[var(--primary-color)] text-white font-semibold hover:bg-[var(--primary-hover-color)] cursor-pointer transition-colors duration-300"
@@ -63,7 +62,7 @@ export default function TechnlogyGlobally() {
                         data-aos-duration="600"
                         data-aos-delay="300"
                     >
-                        Get Started
+                        {t("Get Started")}
                     </button>
                 </div>
             </div>

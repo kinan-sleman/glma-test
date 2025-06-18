@@ -1,37 +1,39 @@
 import { hosting_1, hosting_2, hosting_3, hosting_4, human, human_service } from "../exports/images"
 import { Circle } from 'lucide-react'
-
-const hostings = [
-    {
-        name: "Dedicated Hosting",
-        img: hosting_1,
-    },
-    {
-        name: "Shared Hosting",
-        img: hosting_2,
-    },
-    {
-        name: "Reseller Hosting",
-        img: hosting_3,
-    },
-    {
-        name: "Domain Hosting",
-        img: hosting_4,
-    },
-]
-
-const descriptions = {
-    title: "DEDICATED HOSTING",
-    description: "Lorem ipsum dolor sit amet, ectetuer adipiscing elit. Nullsam aget dolor sit amit, ecc.",
-    list: [
-        'Fully Managed Dedicated Server',
-        'Windows & Linux',
-        'Complete Control with Root access',
-        'Dedicated Bandwidth',
-    ]
-}
+import { useTranslation } from 'react-i18next'
 
 export default function DedicatedHosting() {
+    const { t } = useTranslation();
+
+    const hostings = [
+        {
+            name: t("Dedicated Hosting"),
+            img: hosting_1,
+        },
+        {
+            name: t("Shared Hosting"),
+            img: hosting_2,
+        },
+        {
+            name: t("Reseller Hosting"),
+            img: hosting_3,
+        },
+        {
+            name: t("Domain Hosting"),
+            img: hosting_4,
+        },
+    ]
+
+    const descriptions = {
+        title: t("DEDICATED HOSTING"),
+        description: t("Lorem ipsum dolor sit amet, ectetuer adipiscing elit. Nullsam aget dolor sit amit, ecc."),
+        list: [
+            t('Fully Managed Dedicated Server'),
+            t('Windows & Linux'),
+            t('Complete Control with Root access'),
+            t('Dedicated Bandwidth'),
+        ]
+    }
     return (
         <div className="md:py-16 md:px-20">
             <div className="max-w-7xl mx-auto">
@@ -54,7 +56,7 @@ export default function DedicatedHosting() {
                                 data-aos-easing="ease-out"
                             >
                                     <img src={hosting.img} alt={hosting.name} className="size-6 md:size-10 mb-2" />
-                                    <h3 className="text-sm md:text-xl font-semibold">{hosting.name}</h3>
+                                    <h3 className="text-sm md:text-xl font-semibold">{t(hosting.name)}</h3>
                                 </div>
                             ))}
                         </div>
@@ -88,7 +90,7 @@ export default function DedicatedHosting() {
                             data-aos-duration="800"
                             data-aos-delay="1000"
                         >
-                            {descriptions.title}
+                            {t(descriptions.title)}
                         </h2>
                         <p 
                             className="text-gray-600 leading-relaxed"
@@ -96,7 +98,7 @@ export default function DedicatedHosting() {
                             data-aos-duration="800"
                             data-aos-delay="1100"
                         >
-                            {descriptions.description}
+                            {t(descriptions.description)}
                         </p>
                         <div className="space-y-3">
                             {descriptions.list.map((item, index) => (
@@ -114,7 +116,7 @@ export default function DedicatedHosting() {
                                     data-aos-duration="600"
                                     data-aos-delay="100"
                                 >
-                                    {item}
+                                    {t(item)}
                                 </span>
                                 </div>
                             ))}
@@ -124,7 +126,7 @@ export default function DedicatedHosting() {
                                 data-aos-duration="800"
                                 data-aos-delay="1600"
                             >
-                                Buy Now
+                                {t("Buy Now")}
                             </button>
                         </div>
                     </div>

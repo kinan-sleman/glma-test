@@ -1,6 +1,7 @@
 import { motion, useAnimation, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface CounterProps {
     target: number;
@@ -8,6 +9,7 @@ interface CounterProps {
 }
 
 const Counter = ({ target, title }: CounterProps) => {
+    const { t } = useTranslation();
     const controls = useAnimation();
     const [ref, inView] = useInView({
         threshold: 0.1,
@@ -85,7 +87,7 @@ const Counter = ({ target, title }: CounterProps) => {
                     }}
                     className="text-lg text-gray-600 uppercase tracking-wider"
                 >
-                    {title}
+                    {t(title)}
                 </motion.div>
             </motion.div>
 
@@ -93,13 +95,14 @@ const Counter = ({ target, title }: CounterProps) => {
         </div>
     );
 };
-const countersData = [
-    { target: 5000, title: "Happy Clients" },
-    { target: 3000, title: "Servers" },
-    { target: 2000, title: "DEDICATED STAFF" },
-    { target: 20, title: "AWARDS WDN" },
-];
 export default function Counters() {
+    const { t } = useTranslation();
+    const countersData = [
+        { target: 5000, title: t("Happy Clients") },
+        { target: 3000, title: t("Servers") },
+        { target: 2000, title: t("DEDICATED STAFF") },
+        { target: 20, title: t("AWARDS WDN") },
+    ];
     return (
         <div className="max-w-7xl mx-auto px-8 py-10 bg-white">
             <div className="w-full">

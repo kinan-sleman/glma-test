@@ -8,35 +8,36 @@ import {
     Instagram,
     Linkedin,
 } from "lucide-react";
-import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Footer() {
+    const { i18n, t } = useTranslation();
     const products = [
-        "Webhosting",
-        "Reseler Hosting",
-        "VPS Hosting",
-        "Wordpress Hosting",
-        "Dedicated Hosting",
-        "Windows Hosting",
+        t("Webhosting"),
+        t("Reseler Hosting"),
+        t("VPS Hosting"),
+        t("Wordpress Hosting"),
+        t("Dedicated Hosting"),
+        t("Windows Hosting"),
     ];
-    const [language, setLanguage] = useState("en");
-    const flags = {
-        en: "https://flagcdn.com/w40/gb.png",
-        ar: "https://flagcdn.com/w40/sa.png",
-    };
+    const { language, setLanguage, flags } = useLanguage();
+
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setLanguage(e.target.value);
+        const newLang = e.target.value;
+        setLanguage(newLang);
+        i18n.changeLanguage(newLang);
     };
     return (
-        <div 
-            className="bg-[#0B1129]" 
+        <div
+            className="bg-[#0B1129]"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="200"
         >
             <div className="max-w-7xl mx-auto px-2 md:px-8 flex flex-col">
                 {/* Chat Section */}
-                <div 
+                <div
                     className="bg-[var(--primary-color)] w-full md:w-3/4 mx-auto px-6 py-8 flex flex-col md:flex-row justify-between text-white mb-8 divide-y md:divide-y-0 md:divide-x divide-white/30"
                     data-aos="fade-up"
                     data-aos-duration="800"
@@ -44,26 +45,26 @@ export default function Footer() {
                 >
                     <div className="flex gap-3 items-center px-4 py-2 md:py-0">
                         <PhoneCall />
-                        <h2 className="font-bold">123-456-7890</h2>
+                        <h2 className="font-bold">{t("123-456-7890")}</h2>
                     </div>
                     <div className="flex gap-3 items-center px-4 py-2 md:py-0">
                         <Mail />
-                        <h2 className="font-bold">INFO@HOSTPRESS.COM</h2>
+                        <h2 className="font-bold">{t("INFO@HOSTPRESS.COM")}</h2>
                     </div>
                     <div className="flex gap-3 items-center px-4 py-2 md:py-0">
                         <MessageCircle />
-                        <h2 className="font-bold">CHAT WITH US</h2>
+                        <h2 className="font-bold">{t("CHAT WITH US")}</h2>
                     </div>
                 </div>
 
                 {/* About + Products */}
-                <div 
+                <div
                     className="flex gap-10 flex-col md:flex-row justify-between mb-6"
                     data-aos="fade-up"
                     data-aos-duration="800"
                     data-aos-delay="400"
                 >
-                    <div 
+                    <div
                         className="md:w-1/2 flex flex-col gap-3"
                         data-aos="fade-up"
                         data-aos-duration="600"
@@ -90,19 +91,16 @@ export default function Footer() {
                             <span className="text-2xl font-bold mb-1 text-white">ostpress</span>
                         </div>
                         <p className="text-[var(--text-color)]">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                            temporibus assumenda debitis, totam doloremque sequi necessitatibus
-                            unde. Eius, nisi ex libero corrupti ducimus ipsum molestias harum
-                            ipsam placeat voluptas. Molestias!
+                            {t("Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam temporibus assumenda debitis, totam doloremque sequi necessitatibus unde. Eius, nisi ex libero corrupti ducimus ipsum molestias harum ipsam placeat voluptas. Molestias!")}
                         </p>
                     </div>
-                    <div 
+                    <div
                         className="md:w-1/2"
                         data-aos="fade-up"
                         data-aos-duration="600"
                         data-aos-delay="200"
                     >
-                        <h2 className="text-2xl font-bold mb-1 text-white">PRODUCT</h2>
+                        <h2 className="text-2xl font-bold mb-1 text-white">{t('PRODUCT')}</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-3 gap-4">
                             {products.map((item, index) => (
                                 <div key={index} className="flex gap-2">
@@ -114,14 +112,14 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div 
+                <div
                     className="border-t border-gray-700 !grid md:grid-cols-3 grid-cols-6 text-[var(--text-color)]"
                     data-aos="fade-up"
                     data-aos-duration="800"
                     data-aos-delay="500"
                 >
                     {/* Language Selector */}
-                    <div 
+                    <div
                         className="flex py-6 col-span-3 md:col-span-1 items-center gap-2 px-4 border-b md:border-b-0 md:border-r border-gray-700 border-r md:border-0"
                         data-aos="fade-up"
                         data-aos-duration="600"
@@ -138,13 +136,13 @@ export default function Footer() {
                             onChange={handleChange}
                             className="bg-transparent text-white border-none focus:outline-none text-sm"
                         >
-                            <option value="en" className="text-black">English</option>
-                            <option value="ar" className="text-black">العربية</option>
+                            <option value="en" className="text-black">{t('English')}</option>
+                            <option value="ar" className="text-black">{t('العربية')}</option>
                         </select>
                     </div>
 
                     {/* Social Icons */}
-                    <div 
+                    <div
                         className="flex py-6 col-span-3 md:col-span-1 items-center justify-center gap-4 px-4 border-b md:border-b-0 md:border-r border-gray-700"
                         data-aos="fade-up"
                         data-aos-duration="600"
@@ -161,7 +159,7 @@ export default function Footer() {
                     </div>
 
                     {/* Newsletter */}
-                    <div 
+                    <div
                         className="flex col-span-6 md:col-span-1 py-6 justify-center px-4 mt-6 md:mt-0"
                         data-aos="fade-up"
                         data-aos-duration="600"
@@ -169,17 +167,17 @@ export default function Footer() {
                     >
                         <div className="flex gap-3 items-start md:items-center w-full max-w-xl">
                             <div className="flex flex-col">
-                                <h2 className="text-white font-bold">SUBSCRIBE</h2>
-                                <p className="text-[var(--text-color)] text-sm">Newsletter</p>
+                                <h2 className="text-white font-bold">{t('SUBSCRIBE')}</h2>
+                                <p className="text-[var(--text-color)] text-sm">{t("Newsletter")}</p>
                             </div>
                             <div className="flex items-center bg-[#121A3E] rounded overflow-hidden flex-grow">
                                 <input
                                     type="email"
-                                    placeholder="Email Address"
+                                    placeholder={t('Email Address')}
                                     className="px-4 py-2 outline-none text-sm bg-transparent text-white placeholder:text-gray-400 w-full"
                                 />
                                 <button className="px-4 text-white font-bold h-full">
-                                    Go
+                                    {t('Go')}
                                 </button>
                             </div>
                         </div>
@@ -188,14 +186,14 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div 
+            <div
                 className="bg-[#080D20] mt-10 py-6"
                 data-aos="fade-up"
                 data-aos-duration="800"
                 data-aos-delay="600"
             >
                 <p className="text-center text-[var(--text-color)]">
-                    © 2025 Hostpress. All rights reserved.
+                    {t('© 2025 Hostpress. All rights reserved.')}
                 </p>
             </div>
         </div>

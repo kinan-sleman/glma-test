@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { human } from "../exports/images"
 import { useState } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 interface Testimonial {
     number: string
@@ -9,18 +10,19 @@ interface Testimonial {
 }
 
 export default function Testimonials() {
+    const { t } = useTranslation();
     const testimonials: Testimonial[] = [
         {
             number: "01",
-            description: "Working with Hostpress has been a game-changer for our business. Their customer service is exceptional and they truly understand our needs. The platform is user-friendly and has helped us streamline our operations significantly.",
+            description: t("Working with Hostpress has been a game-changer for our business. Their customer service is exceptional and they truly understand our needs. The platform is user-friendly and has helped us streamline our operations significantly."),
         },
         {
             number: "02",
-            description: "I've never worked with a more professional and reliable hosting company. Their technical support is available 24/7 and they always respond promptly. The uptime is outstanding and their security measures are top-notch.",
+            description: t("I've never worked with a more professional and reliable hosting company. Their technical support is available 24/7 and they always respond promptly. The uptime is outstanding and their security measures are top-notch."),
         },
         {
             number: "03",
-            description: "Hostpress has exceeded our expectations in every way. Their pricing is competitive and their features are unmatched. The performance of our websites has improved dramatically since switching to their services.",
+            description: t("Hostpress has exceeded our expectations in every way. Their pricing is competitive and their features are unmatched. The performance of our websites has improved dramatically since switching to their services."),
         },
     ]
 
@@ -79,12 +81,12 @@ export default function Testimonials() {
                             <span className="text-4xl font-bold text-gray-600 border-r border-gray-600 md:border-0 h-fit pr-2 md:pr-0">{current.number}</span>
                             <motion.p 
                                 className="text-gray-600 line-clamp-6 overflow-hidden" 
-                                title={current.description}
+                                title={t(current.description)}
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.2 }}
                             >
-                                {current.description}
+                                {t(current.description)}
                             </motion.p>
                         </motion.div>
 

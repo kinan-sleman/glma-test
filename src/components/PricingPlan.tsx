@@ -1,30 +1,33 @@
+import { useTranslation } from "react-i18next"
+
 export default function PricingPlan() {
+    const { t } = useTranslation();
     const plans = [
         {
             price: "$19",
-            name: "Starter Plan",
+            name: t("Starter Plan"),
             advantages: [
-                "10GB Bandwidth",
-                "1TB Storage Space",
-                "10 Free SUB-DOMAINS",
+                t("10GB Bandwidth"),
+                t("1TB Storage Space"),
+                t("10 Free SUB-DOMAINS"),
             ],
         },
         {
             price: "$29",
-            name: "Business Plan",
+            name: t("Business Plan"),
             advantages: [
-                "50GB Bandwidth",
-                "5TB Storage Space",
-                "50 Free SUB-DOMAINS",
+                t("50GB Bandwidth"),
+                t("5TB Storage Space"),
+                t("50 Free SUB-DOMAINS"),
             ],
         },
         {
             price: "$39",
-            name: "Premium Plan",
+            name: t("Premium Plan"),
             advantages: [
-                "50GB Bandwidth",
-                "10TB Storage Space",
-                "500 Free SUB-DOMAINS",
+                t("50GB Bandwidth"),
+                t("10TB Storage Space"),
+                t("500 Free SUB-DOMAINS"),
             ],
         },
     ];
@@ -38,7 +41,7 @@ export default function PricingPlan() {
                     data-aos-duration="800"
                     data-aos-delay="200"
                 >
-                    OUR PACKAGE & 
+                    {t("OUR PACKAGE &")}
                 </h3>
                 <h2 
                     className="text-5xl font-light text-center text-white tracking-widest mb-16"
@@ -46,7 +49,7 @@ export default function PricingPlan() {
                     data-aos-duration="800"
                     data-aos-delay="300"
                 >
-                    PRICING PLAN
+                    {t("PRICING PLAN")}
                 </h2>
                 <div className="flex flex-col md:flex-row h-full px-8 gap-1 md:gap-8 relative items-center overflow-hidden md:items-end transition-all duration-500">
                     {plans.map((plan, index) => (
@@ -102,7 +105,7 @@ export default function PricingPlan() {
                                     data-aos-duration="600"
                                     data-aos-delay="200"
                                 >
-                                    Choose Plan
+                                    {t("Choose Plan")}
                                 </span>
                                 </button>
                             </div>

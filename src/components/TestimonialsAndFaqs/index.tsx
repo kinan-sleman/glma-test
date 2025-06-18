@@ -1,7 +1,9 @@
 import Testimonials from "../Testimonials"
 import Faqs from "./Faqs"
+import { useTranslation } from "react-i18next"
 
 export default function TestimonialsAndFaqs() {
+    const { t } = useTranslation();
     return (
         <div className="py-4 md:py-16 md:px-8 bg-white">
             <div className="max-w-7xl mx-auto px-3 md:px-6 flex flex-col md:flex-row items-start gap-12">
@@ -17,7 +19,7 @@ export default function TestimonialsAndFaqs() {
                         data-aos-duration="600"
                         data-aos-delay="100"
                     >
-                        CUSTOMERS
+                        {t("CUSTOMERS")}
                     </h3>
                     <h2 
                         className="md:text-5xl font-light text-[var(--text-color)] tracking-widest mb-16 uppercase"
@@ -25,7 +27,7 @@ export default function TestimonialsAndFaqs() {
                         data-aos-duration="600"
                         data-aos-delay="200"
                     >
-                        Testimonials
+                        {t("Testimonials")}
                     </h2>
                     <Testimonials 
                         data-aos="fade-up"
@@ -45,7 +47,7 @@ export default function TestimonialsAndFaqs() {
                         data-aos-duration="600"
                         data-aos-delay="100"
                     >
-                        CUSTOMERS
+                        {t("CUSTOMERS")}
                     </h3>
                     <h2 
                         className="md:text-5xl font-light text-[var(--text-color)] tracking-widest mb-16 uppercase"
@@ -53,7 +55,7 @@ export default function TestimonialsAndFaqs() {
                         data-aos-duration="600"
                         data-aos-delay="200"
                     >
-                        FAQs
+                        {t("FAQs")}
                     </h2>
                     <Faqs 
                         data-aos="fade-up"

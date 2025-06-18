@@ -1,6 +1,8 @@
-import { hero } from "../exports/images";
+import { hero } from "../exports/images"
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+    const { t } = useTranslation();
     return (
         <div
             className="relative w-full h-screen bg-cover bg-center flex items-center justify-center p-8"
@@ -17,7 +19,7 @@ export default function Hero() {
                         data-aos-duration="800" 
                         data-aos-delay="300"
                     >
-                        50% OFF
+                        {t("50% OFF")}
                     </h1>
                     <h2 
                         className="text-3xl font-semibold mb-6"
@@ -25,7 +27,7 @@ export default function Hero() {
                         data-aos-duration="800"
                         data-aos-delay="400"
                     >
-                        ON HOSTING
+                        {t("ON HOSTING")}
                     </h2>
                     <p 
                         className="text-lg text-[var(--text-color)] hidden md:block"
@@ -33,7 +35,7 @@ export default function Hero() {
                         data-aos-duration="800"
                         data-aos-delay="500"
                     >
-                        High-growth businessess & moderate web traffic, you can buy our vps hosting with on ...
+                        {t("High-growth businessess & moderate web traffic, you can buy our vps hosting with on ...")}
                     </p>
                 </div>
                 <div className="flex justify-end">
@@ -45,16 +47,16 @@ export default function Hero() {
                     >
                         <input
                             type="text"
-                            placeholder="Name"
+                            placeholder={t("Name")}
                             className="w-full p-3 border-b-2 border-gray-300 mb-4 outline-none focus:border-primary"
                         />
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder={t("Email")}
                             className="w-full p-3 border-b-2 border-gray-300 mb-4 outline-none focus:border-primary"
                         />
                         <textarea
-                            placeholder="Message"
+                            placeholder={t("Message")}
                             className="w-full p-3 border-b-2 border-gray-300 mb-4 outline-none focus:border-primary resize-y min-h-[150px]"
                         />
                         <button
@@ -63,7 +65,7 @@ export default function Hero() {
                             data-aos-duration="800"
                             data-aos-delay="700"
                         >
-                            Send Message
+                            {t("Send Message")}
                         </button>
                     </div>
                 </div>
