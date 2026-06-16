@@ -13,8 +13,9 @@ import Footer from './components/common/Footer';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { LanguageProvider } from './context/LanguageContext.tsx';
+import { useLanguage } from './context/LanguageContext.tsx';
 function App() {
+  const { language } = useLanguage()
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -32,8 +33,7 @@ function App() {
   }, []);
 
   return (
-    <LanguageProvider>
-      <div className='overflow-hidden'>
+      <div dir={language === "ar" ? "rtl" : "ltr"} className='overflow-hidden'>
         <Header />
         <Hero />
         <SemiService />
@@ -46,7 +46,6 @@ function App() {
         <TestimonialsAndFaqs />
         <Footer />
       </div>
-    </LanguageProvider>
   )
 }
 

@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         {/* Left Section - Logo and Company Name */}
         <div className="flex items-center">
-          <div className="flex items-center">
+          <div className={`flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} w-fit items-center`}>
             <div className="relative flex items-center justify-center w-10 h-10">
               <MessageCircle
                 fill="#2277eb"
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
         >
           <div className="max-w-7xl mx-auto px-8 py-8">
             <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center">
+              <div className={`flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} w-fit items-center`}>
                 <div className="relative flex items-center justify-center w-10 h-10">
                   <MessageCircle
                     fill="#2277eb"

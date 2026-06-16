@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useLanguage } from "../../context/LanguageContext"
 
 interface Faq {
     question: string
@@ -9,6 +10,7 @@ interface Faq {
 }
 export default function Faqs() {
     const { t } = useTranslation();
+    const { language } = useLanguage()
     const [expanded, setExpanded] = useState<number | null>(0)
 
     const faqs: Faq[] = [
@@ -52,12 +54,12 @@ export default function Faqs() {
                     }}
                 >
                     <div
-                        className="flex items-center justify-between cursor-pointer"
+                        className={`flex items-center ${language === "ar" ? "flex-row" : "flex-row-reverse"} justify-between cursor-pointer`}
                         onClick={() => toggleExpand(index)}
                     >
                         <h3 className="text-lg font-semibold text-gray-800 mb-2 p-2">{t(faq.question)}</h3>
                         <motion.div
-                            className="w-5 h-5 mr-2"
+                            className={`w-5 h-5 mx-2`}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >

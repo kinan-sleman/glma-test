@@ -70,8 +70,8 @@ export default function Footer() {
                         data-aos-duration="600"
                         data-aos-delay="100"
                     >
-                        <div className="flex items-center">
-                            <div className="relative flex items-center justify-center w-10 h-10">
+                        <div className={`flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} w-fit items-center`}>
+                            <div className={`relative flex items-center justify-center w-10 h-10`}>
                                 <MessageCircle
                                     fill="#2277eb"
                                     stroke="#2277eb"
@@ -136,8 +136,8 @@ export default function Footer() {
                             onChange={handleChange}
                             className="bg-transparent text-white border-none focus:outline-none text-sm"
                         >
-                            <option value="en" className="text-black">{t('English')}</option>
-                            <option value="ar" className="text-black">{t('العربية')}</option>
+                            <option value="en" className="text-white">{t('English')}</option>
+                            <option value="ar" className="text-white">{t('العربية')}</option>
                         </select>
                     </div>
 

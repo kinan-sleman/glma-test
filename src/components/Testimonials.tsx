@@ -3,6 +3,7 @@ import { human } from "../exports/images"
 import { useState } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { useLanguage } from "../context/LanguageContext"
 
 interface Testimonial {
     number: string
@@ -11,6 +12,7 @@ interface Testimonial {
 
 export default function Testimonials() {
     const { t } = useTranslation();
+    const { language } = useLanguage();
     const testimonials: Testimonial[] = [
         {
             number: "01",
@@ -53,7 +55,7 @@ export default function Testimonials() {
                 data-aos-delay="300"
             />
             <div className="relative w-full">
-                <div className="min-h-[100px] pr-5 max-h-[330px]">
+                <div className={`min-h-[100px] ${language === "ar" ? "pl-5" : "pr-5"} max-h-[330px]`}>
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={current.number}
@@ -78,7 +80,7 @@ export default function Testimonials() {
                             }}
                             className="flex gap-2 p-4 rounded "
                         >
-                            <span className="text-4xl font-bold text-gray-600 border-r border-gray-600 md:border-0 h-fit pr-2 md:pr-0">{current.number}</span>
+                            <div className={`text-4xl font-bold text-gray-600 border-r border-gray-600 md:border-0 h-fit ${language === "ar" ? "pl-2 md:pl-0" : "pr-2 md:pr-0"}`}>{current.number}</div>
                             <motion.p 
                                 className="text-gray-600 line-clamp-6 overflow-hidden" 
                                 title={t(current.description)}
@@ -97,7 +99,7 @@ export default function Testimonials() {
                                 whileTap={{ scale: 0.9 }}
                                 className="w-6 h-6 text-gray-700 hover:text-black transition flex items-center justify-center"
                             >
-                                <ArrowLeft className="w-4 h-4" />
+                                {language === "ar" ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
                             </motion.button>
                             <motion.button 
                                 onClick={handleNext}
@@ -105,7 +107,7 @@ export default function Testimonials() {
                                 whileTap={{ scale: 0.9 }}
                                 className="w-6 h-6 text-gray-700 hover:text-black transition flex items-center justify-center"
                             >
-                                <ArrowRight className="w-4 h-4" />
+                                {language === "ar" ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
                             </motion.button>
                         </div>
                     </AnimatePresence>
